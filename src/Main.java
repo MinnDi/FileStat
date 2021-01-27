@@ -26,7 +26,8 @@ public class Main {
     }
 
     static Map<String,Integer> readUsersFilename(String path) throws IOException {
-        Path filePath = Paths.get("C:\\User\\Desktop\\"+path);
+        String p = "C:\\Users\\User\\IdeaProjects\\FileStat\\src\\"+path;
+        Path filePath = Paths.get(p);
         if (!Files.exists(filePath)) throw new FileNotFoundException();
         BufferedReader br = new BufferedReader(new FileReader(path));
         Map<String, Integer> dict = new HashMap<>();
@@ -94,7 +95,7 @@ public class Main {
     }
 
     static Map<String,Integer> readFromDefaultFile() throws IOException {
-        if (Files.exists(Path.of("C:\\Users\\User\\IdeaProjects\\FileStat\\src\\text"))) throw new FileNotFoundException();
+        if (!Files.exists(Path.of("C:\\Users\\User\\IdeaProjects\\FileStat\\src\\text"))) throw new FileNotFoundException();
         BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\User\\IdeaProjects\\FileStat\\src\\text"));
         Map<String, Integer> dict = new HashMap<>();
 
