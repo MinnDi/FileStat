@@ -26,7 +26,7 @@ public class Main {
     }
 
     static Map<String,Integer> readUsersFilename(String path) throws IOException {
-        String p = "C:\\Users\\User\\IdeaProjects\\FileStat\\src\\"+path;
+        String p = System.getProperty("user.dir") + File.separator +path;
         Path filePath = Paths.get(p);
         if (!Files.exists(filePath)) throw new FileNotFoundException();
         BufferedReader br = new BufferedReader(new FileReader(path));
